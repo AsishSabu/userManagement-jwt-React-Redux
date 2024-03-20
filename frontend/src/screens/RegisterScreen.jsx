@@ -30,13 +30,33 @@ const RegisterScreen = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
+    const nameRegex=/^[a-zA-Z ]+$/
+    const emailRegex=/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+
     if (name.trim().length === 0) {
       toast.error('Name cannot be empty');
       return;
     }
-
+   
+    if(!email){
+      toast.error("Email is required");
+      return
+    }
+    if(!emailRegex.test(email)){
+      toast.error("Enter a valid email")
+      return
+    }
+   if(password.length<4){
+      toast.error("Password should contain atleast 4 characters")
+      return
+      }
+      if(!password){
+        toast.error( "Password is required")
+        return
+      }
     if (password !== confirmPassword) {
       toast.error('Passwords do not match');
+      return
     } else {
       try {
 

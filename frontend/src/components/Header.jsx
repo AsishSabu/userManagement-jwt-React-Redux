@@ -38,6 +38,9 @@ const logoutHandler = async () => {
               {userInfo ? (
                 <>
                   <NavDropdown title={userInfo.name} id="username">
+                  <LinkContainer to="/">
+                      <NavDropdown.Item>Home</NavDropdown.Item>
+                    </LinkContainer>
                     <LinkContainer to="/profile">
                       <NavDropdown.Item>Profile</NavDropdown.Item>
                     </LinkContainer>

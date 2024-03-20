@@ -10,8 +10,8 @@ export const validate=(values)=>{
     
     if(!values.password){
       errors.password="Password is required"
-    }else if(values.password.length<6){
-        errors.password="Password should contain atleast 6 characters"
+    }else if(values.password.length<4){
+        errors.password="Password should contain atleast 4 characters"
       }
     return errors;
   }

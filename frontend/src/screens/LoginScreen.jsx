@@ -26,6 +26,23 @@ const LoginScreen = () => {
 
     const submitHandler = async (e) => {
         e.preventDefault();
+
+        const emailRegex=/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+     
+        if(!email){
+            toast.error("Email is required");
+            return
+          }
+          if(!emailRegex.test(email)){
+            toast.error("Enter a valid email")
+            return
+          }
+        
+            if(!password){
+              toast.error( "Password is required")
+              return
+            }
+
         try {
             const res = await login({email,password}).unwrap();
             dispatch(setCredentials({...res}))
